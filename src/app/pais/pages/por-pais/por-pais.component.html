@@ -1,0 +1,20 @@
+<h2>Busqueda Por País</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <app-pais-input (onEnter)="buscar($event)" placeholder="Buscar por Pais..."></app-pais-input>
+    </div>
+</div>
+<hr>
+
+<div class="alert alert-danger" *ngIf="errorExist">
+    No se encontró nada con el término {{ termino }}
+</div>
+
+<div *ngIf="!errorExist" class="row">
+    <!-- <div class="col" *ngif="paisesResp.lenght>0"> -->
+    <div class="col">
+        <app-pais-tabla [paisesResp]="paisesResp"></app-pais-tabla>
+    </div>
+</div>
