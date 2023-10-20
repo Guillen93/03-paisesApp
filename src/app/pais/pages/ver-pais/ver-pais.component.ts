@@ -11,15 +11,15 @@ import { Country } from '../../interfaces/pais.interfaces';
 })
 export class VerPaisComponent implements OnInit {
 
-  pais!:Country;
+  pais!: Country;
 
   constructor(private paisService: PaisService, private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activateRoute.params.pipe(switchMap((param)=> 
-    this.paisService.getPaisPorAlpha(param['id'])))
-    .subscribe(pais=> this.pais=pais[0])
-
+    this.activateRoute.params.pipe(switchMap((param) =>
+      this.paisService.getPaisPorAlpha(param['id'])))
+      .subscribe(pais => this.pais = pais[0])
+    
     // this.activateRoute.params.subscribe(param => {
     //   // console.log(param['id']);
     //   this.paisService.getPaisPorAlpha(param['id']).subscribe(pais =>console.log(pais))
